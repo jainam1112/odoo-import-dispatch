@@ -77,16 +77,33 @@ rm -rf odoo-import-dispatch-master master.zip
 log_info "Setting up directory structure..."
 mkdir -p {nginx/ssl,nginx/logs,odoo/data,postgres/data,backups}
 
-# Copy dispatch management module
+# Copy Odoo addons and modules
 log_info "Setting up Odoo modules..."
 mkdir -p odoo/addons
-# Note: The dispatch_management module should be in your repo
-# If it's in a different location, adjust the path below
+
+# Copy all essential Odoo addons (including web module)
+if [ -d "odoo-17/addons" ]; then
+    log_info "Copying Odoo core addons (including web module)..."
+    cp -r odoo-17/addons/* odoo/addons/
+    log_success "Odoo core addons copied successfully"
+else
+    log_error "Odoo-17 addons directory not found!"
+    exit 1
+fi
+
+# Copy custom addons
+if [ -d "custom_addons" ]; then
+    log_info "Copying custom addons..."
+    cp -r custom_addons/* odoo/addons/
+    log_success "Custom addons copied successfully"
+else
+    log_warning "Custom addons directory not found"
+fi
+
+# Copy dispatch management module if it exists separately
 if [ -d "dispatch_management" ]; then
     cp -r dispatch_management odoo/addons/
     log_success "Dispatch management module copied"
-else
-    log_warning "Dispatch management module not found in expected location"
 fi
 
 # Create environment file
@@ -148,7 +165,7 @@ services:
       --db_host=${DB_HOST}
       --db_user=${DB_USER}
       --db_password=${DB_PASSWORD}
-      --addons-path=/mnt/extra-addons,/usr/lib/python3/dist-packages/odoo/addons
+      --addons-path=/mnt/extra-addons
       --workers=2
       --limit-memory-hard=1073741824
       --limit-memory-soft=805306368
