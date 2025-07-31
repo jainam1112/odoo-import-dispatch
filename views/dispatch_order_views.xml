@@ -1,0 +1,18 @@
+<odoo>
+  <record id="view_picking_dispatch_inherit" model="ir.ui.view">
+    <field name="name">stock.picking.dispatch.form</field>
+    <field name="model">stock.picking</field>
+    <field name="inherit_id" ref="stock.view_picking_form" />
+    <field name="arch" type="xml">
+      <xpath expr="//form/sheet/notebook/page[@name='operations']" position="after">
+        <page string="Dispatch Info">
+          <group>
+            <field name="eway_bill_no"/>
+            <field name="grn_attachment" filename="grn_filename"/>
+            <field name="customer_confirmed"/>
+          </group>
+        </page>
+      </xpath>
+    </field>
+  </record>
+</odoo>

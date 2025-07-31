@@ -1,0 +1,118 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Start Odoo 17",
+			"type": "shell",
+			"command": "D:/sagar/.venv/Scripts/python.exe",
+			"args": [
+				"odoo-17/odoo-bin",
+				"-c",
+				"odoo.conf"
+			],
+			"group": "build",
+			"isBackground": true,
+			"problemMatcher": [],
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "new"
+			},
+			"options": {
+				"cwd": "${workspaceFolder}"
+			}
+		},
+		{
+			"label": "Start Odoo 17 (Debug Mode)",
+			"type": "shell",
+			"command": "D:/sagar/.venv/Scripts/python.exe",
+			"args": [
+				"odoo-17/odoo-bin",
+				"-c",
+				"odoo.conf",
+				"--dev=all"
+			],
+			"group": "build",
+			"isBackground": true,
+			"problemMatcher": [],
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "new"
+			},
+			"options": {
+				"cwd": "${workspaceFolder}"
+			}
+		},
+		{
+			"label": "Update Import Dispatch Module",
+			"type": "shell",
+			"command": "D:/sagar/.venv/Scripts/python.exe",
+			"args": [
+				"odoo-17/odoo-bin",
+				"-c",
+				"odoo.conf",
+				"-u",
+				"import_dispatch_process",
+				"--stop-after-init"
+			],
+			"group": "build",
+			"problemMatcher": [],
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "new"
+			},
+			"options": {
+				"cwd": "${workspaceFolder}"
+			}
+		},
+		{
+			"label": "Install Import Dispatch Module",
+			"type": "shell",
+			"command": "D:/sagar/.venv/Scripts/python.exe",
+			"args": [
+				"odoo-17/odoo-bin",
+				"-c",
+				"odoo.conf",
+				"-i",
+				"import_dispatch_process",
+				"--stop-after-init"
+			],
+			"group": "build",
+			"problemMatcher": [],
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "new"
+			},
+			"options": {
+				"cwd": "${workspaceFolder}"
+			}
+		},
+		{
+			"label": "Setup PostgreSQL Database",
+			"type": "shell",
+			"command": "psql",
+			"args": [
+				"-c",
+				"CREATE USER odoo WITH CREATEDB PASSWORD 'odoo'; CREATE DATABASE odoo OWNER odoo;"
+			],
+			"group": "build",
+			"problemMatcher": [],
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "new"
+			},
+			"options": {
+				"cwd": "${workspaceFolder}"
+			}
+		}
+	]
+}

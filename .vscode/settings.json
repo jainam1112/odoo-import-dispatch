@@ -1,0 +1,14 @@
+{
+    "python.defaultInterpreterPath": "D:/sagar/.venv/Scripts/python.exe",
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": true,
+    "python.formatting.provider": "black",
+    "files.associations": {
+        "*.xml": "xml"
+    },
+    "emmet.includeLanguages": {
+        "xml": "html"
+    },
+    "xml.codeLens.enabled": true,
+    "xml.validation.enabled": true
+}

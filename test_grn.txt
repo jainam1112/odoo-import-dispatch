@@ -1,0 +1,21 @@
+GOODS RECEIPT NOTE
+===================
+
+D.O.No.: EWB123456789
+Date: 2024-01-15
+
+To,
+LOGISTICS WAREHOUSE SERVICES PVT LTD
+123 Industrial Area, Sector 15
+Gurgaon, Haryana - 122001
+
+Product: Sample Product for Testing
+Quantity: 100 Units
+E-Way Bill No: EWB123456789
+
+Delivery Location: Mumbai Office
+Customer: Test Customer
+
+Logistics Partner: LOGISTICS WAREHOUSE SERVICES
+
+This is a test GRN file to trigger email notifications.

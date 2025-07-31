@@ -1,14 +1,12 @@
 {
-    "name": "Import Dispatch Process",
-    "version": "1.0",
-    "depends": ["base", "purchase"],
-    "author": "ChatGPT",
-    "category": "Custom",
-    "description": "Handles dispatch orders for import company workflow",
-    "data": [
-        "views/dispatch_order_views.xml",
-        "security/ir.model.access.csv"
+    'name': 'Dispatch Management',
+    'version': '1.0',
+    'category': 'Inventory',
+    'depends': ['stock', 'sale', 'purchase', 'account'],
+    'data': [
+        'security/ir.model.access.csv',
+        'views/dispatch_view.xml',
     ],
-    "installable": True,
-    "application": True
+    'installable': True,
+    'application': True,
 }
