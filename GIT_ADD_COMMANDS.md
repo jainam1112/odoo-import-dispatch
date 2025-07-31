@@ -1,17 +1,25 @@
 # Git Commands to Add odooKr Repository
 
-## Method 1: Add as Git Subtree (Recommended)
-This will merge the odooKr repository into your project as a subdirectory:
+## ⚠️ STATUS: Repository is Empty
+The odooKr repository (https://github.com/krasiklalitadmin/odooKr.git) currently contains no content.
 
+## Current Options:
+
+### Option 1: Add as Submodule (for future content)
 ```bash
-# Navigate to your project root
-cd d:\sagar
+# Add empty repository as submodule - will track future updates
+git submodule add https://github.com/krasiklalitadmin/odooKr.git odooKr
+git commit -m "Add odooKr submodule (empty)"
+git push origin master
+```
 
-# Add the odooKr repository as a subtree in a new 'odooKr' folder
+### Option 2: Wait and Add Later
+```bash
+# Check if repository has content later
+git ls-remote https://github.com/krasiklalitadmin/odooKr.git
+
+# When it has content, then use:
 git subtree add --prefix=odooKr https://github.com/krasiklalitadmin/odooKr.git main --squash
-
-# If main branch doesn't exist, try master:
-git subtree add --prefix=odooKr https://github.com/krasiklalitadmin/odooKr.git master --squash
 ```
 
 ## Method 2: Add as Git Submodule
